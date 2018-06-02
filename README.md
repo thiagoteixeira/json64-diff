@@ -86,9 +86,9 @@ Response body:
     }
 
 
-[sonar-url]:https://sonarcloud.io/dashboard?id=com.thiagojavabr%3Ajson64-diff
+[sonar-url]:https://sonarcloud.io/dashboard?id=com.thiagojavabr%3Ajson64-diff&nocache
 [sonar-quality-gate]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=alert_status
-[sonar-coverage]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=coverage
+[sonar-coverage]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=coverage&cached=1
 [sonar-bugs]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=bugs
 [sonar-vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=vulnerabilities
 
