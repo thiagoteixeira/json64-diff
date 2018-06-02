@@ -94,7 +94,7 @@ Response body:
 
 Note: result when both sides are equal! 
 
-##### Possible results for get requests:
+#### Possible results for get requests:
 | When      | Get Response body will be | HTTP Status Code | Note |
 |:--------------|:----------------------------------|----------------------|-----|
 | `Sides are equal`      |    `{  "message": "The JSON contents are equal!" }` |200 OK||
