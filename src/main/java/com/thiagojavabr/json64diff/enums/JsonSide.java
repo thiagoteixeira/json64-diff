@@ -6,5 +6,16 @@ package com.thiagojavabr.json64diff.enums;
  * @author Thiago A. Teixeira
  */
 public enum JsonSide {
-    LEFT, RIGHT
+    LEFT("left"), RIGHT("right");
+
+    private String description;
+
+    private JsonSide(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return description;
+    }
 }

@@ -63,4 +63,11 @@ public class Result {
     public int hashCode() {
         return Objects.hash(message);
     }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "message='" + message + '\'' +
+                '}';
+    }
 }

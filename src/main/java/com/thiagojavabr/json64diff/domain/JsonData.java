@@ -3,6 +3,7 @@ package com.thiagojavabr.json64diff.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import java.util.Objects;
 
 /**
  * Wrapper entity representing an identifier and two binary jsons(left and right)
@@ -56,5 +57,30 @@ public class JsonData {
 
     public void setRight(String right) {
         this.right = right;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JsonData jsonData = (JsonData) o;
+        return Objects.equals(id, jsonData.id) &&
+                Objects.equals(left, jsonData.left) &&
+                Objects.equals(right, jsonData.right);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, left, right);
+    }
+
+    @Override
+    public String toString() {
+        return "JsonData{" +
+                "id=" + id +
+                ", left='" + left + '\'' +
+                ", right='" + right + '\'' +
+                '}';
     }
 }

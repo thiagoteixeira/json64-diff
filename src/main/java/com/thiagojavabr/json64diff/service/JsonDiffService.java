@@ -5,6 +5,8 @@ import com.thiagojavabr.json64diff.enums.JsonSide;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
 import com.thiagojavabr.json64diff.util.Result;
 import jdk.internal.joptsimple.internal.Strings;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import java.util.*;
 @Service
 public class JsonDiffService {
 
+    private static final Logger log = LogManager.getLogger(JsonDiffService.class);
+
     @Autowired
     private JsonDataRepository repository;
 
@@ -30,6 +34,7 @@ public class JsonDiffService {
      * @return The {@link JsonData} object created or updated.
      */
     public JsonData save(Long id, String json, JsonSide side) {
+        log.info("Saving id={} data={} side={}", id, json, side);
         Optional<JsonData> jsonDataOpt = repository.findById(id);
         JsonData jsonData = jsonDataOpt.isPresent() ? jsonDataOpt.get() : new JsonData(id);
         if (JsonSide.LEFT.equals(side)) {
@@ -41,6 +46,18 @@ public class JsonDiffService {
     }
 
     /**
+     * Encapsulates the call to {@link JsonDiffService#validateImpl(JsonData)}
+     *
+     * @see #validateImpl(JsonData)
+     */
+    public Result validate(JsonData jsonData) {
+        log.info("Validating the sides of {}", jsonData);
+        Result result = validateImpl(jsonData);
+        log.info("Validating result: {}", result);
+        return result;
+    }
+
+    /**
      * Compares the bytes of the sides of a {@link JsonData} object instance.
      * @param jsonData The {@link JsonData} object instance that will have its sides compared.
      * @return An {@link Result} object instance with a message regarding the result of the comparison. If sides are equal
@@ -48,7 +65,7 @@ public class JsonDiffService {
      *         {@link Result.Type#NOT_EQUAL_SIZE}, already if they have the same size but different content then the
      *         message will be represented by {@link Result.Type#EQUAL_SIZE_DIFFERENT_CONTENT} with the offsets.
      */
-    public Result validate(JsonData jsonData) {
+    private Result validateImpl(JsonData jsonData) {
         var left = jsonData.getLeft();
         var right = jsonData.getRight();
 
