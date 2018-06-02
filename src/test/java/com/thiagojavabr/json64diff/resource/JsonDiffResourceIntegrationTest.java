@@ -128,5 +128,8 @@ public class JsonDiffResourceIntegrationTest {
                 .andExpect(status().isNotFound())
                 .andExpect(content().string(""))
                 .andReturn();
+
+        Optional<JsonData> jsonDataOpt = this.repository.findById(expectedId);
+        assertThat(jsonDataOpt).isNotPresent();
     }
 }
