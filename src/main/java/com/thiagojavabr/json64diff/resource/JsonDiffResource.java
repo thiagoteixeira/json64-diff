@@ -22,7 +22,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/v1/diff/{id}")
-@Api(value = "diff", description = "Operations pertaining to create and compare JSON binary data", tags = ("diff"))
+@Api(value = "diff", tags = ("Diff API"))
 public class JsonDiffResource {
 
 
