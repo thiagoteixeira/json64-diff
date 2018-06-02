@@ -4,7 +4,7 @@ import com.thiagojavabr.json64diff.domain.JsonData;
 import com.thiagojavabr.json64diff.enums.JsonSide;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
 import com.thiagojavabr.json64diff.service.JsonDiffService;
-import com.thiagojavabr.json64diff.util.Issue;
+import com.thiagojavabr.json64diff.util.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,11 +64,11 @@ public class JsonDiffResource {
     /**
      * Endpoint that performs a binary comparison of the sides of a {@link JsonData } existent object.
      * @param id The object identifier
-     * @return A {@link Issue} object represantation
+     * @return A {@link Result} object represantation
      */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Gets a diff from the sides of an object given its id.", response = Issue.class, nickname = "getDiffById")
-    public ResponseEntity<Issue> getDiffById(@PathVariable Long id){
+    @ApiOperation(value = "Gets a diff from the sides of an object given its id.", response = Result.class, nickname = "getDiffById")
+    public ResponseEntity<Result> getDiffById(@PathVariable Long id){
         Optional<JsonData> jsonDataOpt = repository.findById(id);
         if(jsonDataOpt.isPresent()){
             var validationMessage = service.validate(jsonDataOpt.get());

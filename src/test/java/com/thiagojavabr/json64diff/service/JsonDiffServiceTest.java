@@ -6,7 +6,7 @@ import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import com.thiagojavabr.json64diff.domain.JsonData;
 import com.thiagojavabr.json64diff.enums.JsonSide;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
-import com.thiagojavabr.json64diff.util.Issue;
+import com.thiagojavabr.json64diff.util.Result;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -119,7 +119,7 @@ public class JsonDiffServiceTest {
         jsonData.setLeft("LEFT");
 
         var issue = service.validate(jsonData);
-        assertThat(issue.getType()).isEqualTo(Issue.Type.NOT_EQUAL_SIZE);
+        assertThat(issue.getType()).isEqualTo(Result.Type.NOT_EQUAL_SIZE);
     }
 
     @Test
@@ -129,7 +129,7 @@ public class JsonDiffServiceTest {
         jsonData.setRight("RIGHT");
 
         var issue = service.validate(jsonData);
-        assertThat(issue.getType()).isEqualTo(Issue.Type.NOT_EQUAL_SIZE);
+        assertThat(issue.getType()).isEqualTo(Result.Type.NOT_EQUAL_SIZE);
     }
 
     @Test
@@ -140,7 +140,7 @@ public class JsonDiffServiceTest {
         jsonData.setRight("RIGHT");
 
         var issue = service.validate(jsonData);
-        assertThat(issue.getType()).isEqualTo(Issue.Type.NOT_EQUAL_SIZE);
+        assertThat(issue.getType()).isEqualTo(Result.Type.NOT_EQUAL_SIZE);
     }
 
     @Test
@@ -151,7 +151,7 @@ public class JsonDiffServiceTest {
         jsonData.setRight("XPTO");
 
         var issue = service.validate(jsonData);
-        assertThat(issue.getType()).isEqualTo(Issue.Type.EQUAL_CONTENT);
+        assertThat(issue.getType()).isEqualTo(Result.Type.EQUAL_CONTENT);
     }
 
     @Test
@@ -164,6 +164,6 @@ public class JsonDiffServiceTest {
         jsonData.setRight("XPTI");
 
         var issue = service.validate(jsonData);
-        assertThat(issue).isEqualTo(new Issue(Issue.Type.EQUAL_SIZE_DIFFERENT_CONTENT, expectedDifferentIndex));
+        assertThat(issue).isEqualTo(new Result(Result.Type.EQUAL_SIZE_DIFFERENT_CONTENT, expectedDifferentIndex));
     }
 }

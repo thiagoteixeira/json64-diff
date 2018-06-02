@@ -7,8 +7,10 @@ import java.util.Objects;
 
 /**
  * Utility used to represent the result of the {@link com.thiagojavabr.json64diff.service.JsonDiffService#validate(JsonData)}
+ *
+ * @author Thiago A. Teixeira
  */
-public class Issue {
+public class Result {
 
     /**
      * Enumerator used to represent JSON content validation messages.
@@ -36,7 +38,7 @@ public class Issue {
 
     private String message;
 
-    public Issue(Type type, Object...params) {
+    public Result(Type type, Object...params) {
         this.type = type;
         message = String.format(type.description, params);
     }
@@ -53,7 +55,7 @@ public class Issue {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Issue that = (Issue) o;
+        Result that = (Result) o;
         return Objects.equals(message, that.message);
     }
 

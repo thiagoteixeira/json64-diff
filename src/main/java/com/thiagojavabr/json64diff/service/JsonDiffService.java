@@ -3,7 +3,7 @@ package com.thiagojavabr.json64diff.service;
 import com.thiagojavabr.json64diff.domain.JsonData;
 import com.thiagojavabr.json64diff.enums.JsonSide;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
-import com.thiagojavabr.json64diff.util.Issue;
+import com.thiagojavabr.json64diff.util.Result;
 import jdk.internal.joptsimple.internal.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,12 +43,12 @@ public class JsonDiffService {
     /**
      * Compares the bytes of the sides of a {@link JsonData} object instance.
      * @param jsonData The {@link JsonData} object instance that will have its sides compared.
-     * @return An {@link Issue} object instance with a message regarding the result of the comparison. If sides are equal
-     *         then {@link Issue.Type#EQUAL_CONTENT}, otherwise check if the sizes are not equal and then the message is
-     *         {@link Issue.Type#NOT_EQUAL_SIZE}, already if they have the same size but different content then the
-     *         message will be represented by {@link Issue.Type#EQUAL_SIZE_DIFFERENT_CONTENT} with the offsets.
+     * @return An {@link Result} object instance with a message regarding the result of the comparison. If sides are equal
+     *         then {@link Result.Type#EQUAL_CONTENT}, otherwise check if the sizes are not equal and then the message is
+     *         {@link Result.Type#NOT_EQUAL_SIZE}, already if they have the same size but different content then the
+     *         message will be represented by {@link Result.Type#EQUAL_SIZE_DIFFERENT_CONTENT} with the offsets.
      */
-    public Issue validate(JsonData jsonData) {
+    public Result validate(JsonData jsonData) {
         var left = jsonData.getLeft();
         var right = jsonData.getRight();
 
@@ -58,11 +58,11 @@ public class JsonDiffService {
         boolean result = Arrays.equals(leftBytes, rightBytes);
 
         if(result){
-            return new Issue(Issue.Type.EQUAL_CONTENT);
+            return new Result(Result.Type.EQUAL_CONTENT);
         }
 
         if(leftBytes.length != rightBytes.length){
-            return new Issue(Issue.Type.NOT_EQUAL_SIZE);
+            return new Result(Result.Type.NOT_EQUAL_SIZE);
         } else {
             List<String> offsets = new ArrayList<>();
             var tmp = 0;
@@ -73,7 +73,7 @@ public class JsonDiffService {
                 }
             }
             var indexes = String.join(", ", offsets);
-            return new Issue(Issue.Type.EQUAL_SIZE_DIFFERENT_CONTENT, indexes);
+            return new Result(Result.Type.EQUAL_SIZE_DIFFERENT_CONTENT, indexes);
         }
     }
 }

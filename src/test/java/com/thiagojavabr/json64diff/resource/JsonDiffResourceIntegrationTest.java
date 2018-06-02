@@ -9,14 +9,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.thiagojavabr.json64diff.domain.JsonData;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
-import com.thiagojavabr.json64diff.util.Issue;
+import com.thiagojavabr.json64diff.util.Result;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -99,7 +98,7 @@ public class JsonDiffResourceIntegrationTest {
         var expectedId = 3L;
         var expectedBinaryLeft = "ewogICJuYW1lIjoiVGhpYWdvIFRlaXhlaXJhIgp9";
         var expectedBinaryRight = "ewogICJuYW1lIjoiVGhpYWdvIFRlaXhlaXJhIgp9";
-        var expectedJsonContent = String.format("{\"message\":\"%s\"}", Issue.Type.EQUAL_CONTENT);
+        var expectedJsonContent = String.format("{\"message\":\"%s\"}", Result.Type.EQUAL_CONTENT);
 
         mvc.perform(post("/v1/diff/{id}/left".replace("{id}", String.valueOf(expectedId)))
                 .accept(MediaType.APPLICATION_JSON)
