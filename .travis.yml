@@ -8,4 +8,4 @@ cache:
     - $HOME/.gradle
 jdk:
   - oraclejdk10
-script: "mvn clean install"
+script: "mvn clean install sonar:sonar -Dsonar.organization=thiagoteixeira-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN"
