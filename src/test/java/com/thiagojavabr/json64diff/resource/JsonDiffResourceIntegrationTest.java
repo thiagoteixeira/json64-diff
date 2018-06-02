@@ -118,4 +118,15 @@ public class JsonDiffResourceIntegrationTest {
                 .andExpect(content().string(expectedJsonContent))
                 .andReturn();
     }
+
+    @Test
+    public void testGetDiffByIdNotFound() throws Exception {
+        var expectedId = 4L;
+
+        MvcResult result = mvc.perform(get("/v1/diff/{id}".replace("{id}", String.valueOf(expectedId)))
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
+                .andExpect(content().string(""))
+                .andReturn();
+    }
 }
