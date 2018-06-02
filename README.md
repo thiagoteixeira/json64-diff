@@ -31,9 +31,9 @@ Spring Boot application for JSON base64 binary data comparison.
 ## Request & Response Examples
 ### API Resources
 
-  - [POST /v1/diff/[id]/left](#post-left)
-  - [POST /v1/diff/[id]/right](#post-right)
-  - [GET /v1/diff/[id]](#get-diff-by-id)
+  - [POST /v1/diff/[id]/left](#post-v1-diffidleft)
+  - [POST /v1/diff/[id]/right](#post-v1-diffidright)
+  - [GET /v1/diff/[id]](#get-v1-diffid)
 
 ### POST /v1/diff/[id]/left
 Example: http://localhost:8080/v1/diff/1/left
