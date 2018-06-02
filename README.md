@@ -8,3 +8,16 @@ Spring Boot application for JSON base64 binary data comparison.
 | Type          | Status                                                   | Description                    |
 |:--------------|:---------------------------------------------------------|:-------------------------------|
 | Maven         | [![Build Status](https://travis-ci.org/thiagoteixeira/json64-diff.svg?branch=master)](https://travis-ci.org/thiagoteixeira/json64-diff)              | mvn clean install |
+
+## Analysis of Json64-diff project
+
+[![sonar-quality-gate][sonar-quality-gate]][sonar-url]
+[![sonar-coverage][sonar-coverage]][sonar-url]
+[![sonar-bugs][sonar-bugs]][sonar-url]
+[![sonar-vulnerabilities][sonar-vulnerabilities]][sonar-url]
+
+[sonar-url]:https://sonarcloud.io/dashboard?id=com.thiagojavabr%3Ajson64-diff
+[sonar-quality-gate]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=alert_status
+[sonar-coverage]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=coverage
+[sonar-bugs]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=bugs
+[sonar-vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=com.thiagojavabr%3Ajson64-diff&metric=vulnerabilities
