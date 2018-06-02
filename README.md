@@ -19,7 +19,7 @@ Spring Boot application for JSON base64 binary data comparison.
 
 ## Development Environment
 ### Build Requirements
-- [JDK10](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html) or higher
+- [JDK 10](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html) or higher
 - [Maven 3.5.2](https://maven.apache.org/download.cgi) or higher
 
 ### Run Unit and Integration Tests
