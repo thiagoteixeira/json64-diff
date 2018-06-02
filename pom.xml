@@ -22,6 +22,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>10</java.version>
+
+        <!--sonar exclude files from test coverage -->
+        <sonar.coverage.exclusions>
+                **/domain/*.java,
+                **/util/*.java,
+                **/Json64DiffApplication.java
+        </sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
