@@ -25,13 +25,11 @@ import java.util.Optional;
 @Api(value = "diff", tags = ("Diff API"))
 public class JsonDiffResource {
 
-
     @Autowired
     private JsonDiffService service;
 
     @Autowired
     private JsonDataRepository repository;
-
 
     /**
      * Endpoint to create the left side of a {@link JsonData}
