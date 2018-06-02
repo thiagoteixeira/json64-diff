@@ -28,6 +28,59 @@ Spring Boot application for JSON base64 binary data comparison.
 ### Run Spring Boot Application
 `mvn spring-boot:run` 
 
+## Request & Response Examples
+### API Resources
+
+  - [POST /v1/diff/[id]/left](#post-left)
+  - [POST /v1/diff/[id]/right](#post-right)
+  - [GET /v1/diff/[id]](#get-diff-by-id)
+
+### POST /v1/diff/[id]/left
+Example: http://localhost:8080/v1/diff/1/left
+
+Request headers: `Content-Type:"application/json"`
+
+Request body: (JSON base64 encoded binary data)
+    
+    eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==
+    
+Note: Real JSON value is `{ "name":"Thiago Teixeira" }`
+
+Response body:
+
+    {
+        "id": 1,
+        "left": "eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==",
+        "right": null
+    } 
+    
+### POST /v1/diff/[id]/right
+Example: http://localhost:8080/v1/diff/1/right
+
+Request headers: `Content-Type:"application/json"`
+
+Request body: (JSON base64 encoded binary data)
+    
+    eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==
+    
+Note: Real JSON value is `{ "name":"Thiago Teixeira" }`
+
+Response body:
+
+    {
+        "id": 1,
+        "left": "eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==",
+        "right": "eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ=="
+    }
+
+### GET /v1/diff/[id]
+Example: http://localhost:8080/v1/diff/1
+
+Response body:
+
+    {
+        "message": "The JSON contents are equal!"
+    }
 
 
 [sonar-url]:https://sonarcloud.io/dashboard?id=com.thiagojavabr%3Ajson64-diff
