@@ -31,11 +31,12 @@ Spring Boot application for JSON base64 binary data comparison.
 ## Request & Response Examples
 ### API Resources
 
-  - [POST /v1/diff/[id]/left](#post-/v1/diff/[id]/left)
-  - [POST /v1/diff/[id]/right](#post-/v1/diff/[id]/right)
-  - [GET /v1/diff/[id]](#get-/v1/diff/[id])
+  - [POST /v1/diff/[id]/left](#post-v1-diffidleft)
+  - [POST /v1/diff/[id]/right](#post-v1-diffidright)
+  - [GET /v1/diff/[id]](#get-v1-diffid)
 
 ### POST /v1/diff/[id]/left
+
 Example: http://localhost:8080/v1/diff/1/left
 
 Request headers: `Content-Type:"application/json"`
@@ -44,7 +45,7 @@ Request body: (JSON base64 encoded binary data)
     
     eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==
     
-Note: Real JSON value is `{ "name":"Thiago Teixeira" }`
+Note: real JSON value is `{ "name":"Thiago Teixeira" }`
 
 Response body:
 
@@ -55,6 +56,7 @@ Response body:
     } 
     
 ### POST /v1/diff/[id]/right
+
 Example: http://localhost:8080/v1/diff/1/right
 
 Request headers: `Content-Type:"application/json"`
@@ -63,7 +65,7 @@ Request body: (JSON base64 encoded binary data)
     
     eyAibmFtZSI6IlRoaWFnbyBUZWl4ZWlyYSIgfQ==
     
-Note: Real JSON value is `{ "name":"Thiago Teixeira" }`
+Note: real JSON value is `{ "name":"Thiago Teixeira" }`
 
 Response body:
 
@@ -74,6 +76,7 @@ Response body:
     }
 
 ### GET /v1/diff/[id]
+
 Example: http://localhost:8080/v1/diff/1
 
 Response body:
