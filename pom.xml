@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>10</java.version>
+        <springfox.swagger.version>2.4.0</springfox.swagger.version>
 
         <!--sonar exclude files from test coverage -->
         <sonar.coverage.exclusions>
@@ -62,6 +63,17 @@
             <version>2.3.0</version>
         </dependency>
         <!-- -->
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.swagger.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

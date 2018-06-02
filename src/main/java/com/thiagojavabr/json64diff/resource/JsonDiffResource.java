@@ -5,6 +5,8 @@ import com.thiagojavabr.json64diff.enums.JsonSide;
 import com.thiagojavabr.json64diff.repository.JsonDataRepository;
 import com.thiagojavabr.json64diff.service.JsonDiffService;
 import com.thiagojavabr.json64diff.util.Issue;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,6 +22,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/v1/diff/{id}")
+@Api(value = "diff", description = "Operations pertaining to create and compare JSON binary data", tags = ("diff"))
 public class JsonDiffResource {
 
 
@@ -38,6 +41,8 @@ public class JsonDiffResource {
      * @return A JSON representation from the {@link JsonData} object created
      */
     @PostMapping(value = "/left", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "Create or update the left side of an object given its id.", response = JsonData.class, nickname = "createLeft")
     public ResponseEntity<JsonData> createLeft(@PathVariable Long id, @RequestBody String json){
         var jsonData = service.save(id, json, JsonSide.LEFT);
         return ResponseEntity.status(HttpStatus.CREATED).body(jsonData);
@@ -51,6 +56,8 @@ public class JsonDiffResource {
      * @return A JSON representation from the {@link JsonData} object created
      */
     @PostMapping(value = "/right", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "Create or update the right side of an object given its id.", response = JsonData.class, nickname = "createRight")
     public ResponseEntity<JsonData> createRight(@PathVariable Long id, @RequestBody String json){
         var jsonData = service.save(id, json, JsonSide.RIGHT);
         return ResponseEntity.status(HttpStatus.CREATED).body(jsonData);
@@ -62,6 +69,7 @@ public class JsonDiffResource {
      * @return A {@link Issue} object represantation
      */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Gets a diff from the sides of an object given its id.", response = Issue.class, nickname = "getDiffById")
     public ResponseEntity<Issue> getDiffById(@PathVariable Long id){
         Optional<JsonData> jsonDataOpt = repository.findById(id);
         if(jsonDataOpt.isPresent()){

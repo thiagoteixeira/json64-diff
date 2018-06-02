@@ -25,10 +25,17 @@ Spring Boot application for JSON base64 binary data comparison.
 ### Run Unit and Integration Tests
 `mvn test`
 
-### Run Spring Boot Application
+### Run Spring Boot Application 
 `mvn spring-boot:run` 
 
 ## Request & Response Examples
+
+### Rest API Swagger Documentation
+
+  - [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+  
+  Note: the above example uses a local web container on port 8080.
+
 ### API Resources
 
   - [POST /v1/diff/[id]/left](#post-v1-diffidleft)
