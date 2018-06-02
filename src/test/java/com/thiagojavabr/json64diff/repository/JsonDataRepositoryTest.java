@@ -4,7 +4,7 @@ import com.thiagojavabr.json64diff.domain.JsonData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,7 +17,7 @@ import java.util.Optional;
  * @author Thiago A. Teixeira
  */
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 public class JsonDataRepositoryTest {
     @Autowired
     private JsonDataRepository jsonDataRepository;
