@@ -21,7 +21,7 @@ import java.util.Optional;
  * @author Thiago A. Teixeira
  */
 @RestController
-@RequestMapping("/v1/diff/{id}")
+@RequestMapping("/v1/diff/{id:[0-9]+}")
 @Api(value = "diff", tags = ("Diff API"))
 public class JsonDiffResource {
 
