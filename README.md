@@ -99,7 +99,7 @@ Note: result when both sides are equal!
 |:--------------|:----------------------------------|----------------------|-----|
 | `Sides are equal`      |    `{  "message": "The JSON contents are equal!" }` |200 OK||
 | `Sides have not the same size`      |    `{  "message": "The JSON contents have not the same size!" }` |200 OK||
-| `Sides have the same size, but different bytes`  |    `{  "message": "The JSON contents have the same size, but offsets are different: 19" }` | 200 OK | In this case, 19 is the different position|
+| `Sides have the same size, but different bytes`  |    `{  "message": "The JSON contents have the same size, but offsets are different: 19" }` | 200 OK | In this case, 19 is the only different position|
 | Id path variable is not found in repository |  | 404 Not Found ||
 
 
