@@ -12,7 +12,7 @@ Spring Boot application for JSON base64 binary data comparison.
 ## Analysis of Json64-diff project
 
 [![sonar-quality-gate][sonar-quality-gate]][sonar-url]
-
+[![sonar-coverage][sonar-coverage]][sonar-url]
 [![sonar-bugs][sonar-bugs]][sonar-url]
 [![sonar-vulnerabilities][sonar-vulnerabilities]][sonar-url]
 
